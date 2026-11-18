@@ -3,3 +3,4 @@
 * text=auto
 
 craft-i18n.rev text eol=lf
+.kiro/scripts/*.sh text eol=lf
