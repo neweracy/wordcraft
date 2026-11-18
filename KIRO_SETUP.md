@@ -43,6 +43,7 @@ Kiro reads `.kiro/settings/mcp.json` (one project) or `~/.kiro/settings/mcp.json
 
 - `autoApprove` holds only tools the server marks `readOnlyHint: true`. `execute`, `batch`, `type_text`, `insert_table`, `select_text`, `new_document`, `open_document`, `save_document`, `click` and `key` still prompt.
 - `--automation-read-root` and `--automation-write-root` confine file access (details in `docs/mcp.md`). Both folders must already exist. The write root can be `plan/kiro-out`, which is gitignored.
+- To let the server open and save files anywhere, on every drive, leave both `--automation-*-root` flags out (`"args": ["mcp", "--author", "Kiro"]`). Each flag can be given only once, so confinement cannot cover two drives. Without the flags, `open_document` and `save_document` still prompt, because they are not in `autoApprove`.
 - `--author Kiro` labels the agent's tracked changes.
 - To drive the running app instead of a headless session, use `"args": ["mcp", "--connect", "127.0.0.1:7981"]` and start the app with `wordcraft --control 7981`. Confinement flags cannot be combined with `--connect`.
 
